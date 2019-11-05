@@ -11,10 +11,17 @@ class Transfer
   end
   
   def execute_transaction
-    if valid? && sender.
+    if valid? && sender.balance > amount
+      sender.balance -= amount
+      receiver.balance += amount
+      status = "completed"
+    else
   end
   
   def reverse_transfer
-    
+    if status == 'executed'
+      sender.balance += amount
+      receiver.balance -= amount
+    end
   end
 end
