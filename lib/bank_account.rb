@@ -1,9 +1,12 @@
 class BankAccount
-  def initialize(name, receiver, amount)
-    @sender, @receiver, @amount, @balance = sender, receiver, amount, 1000
+  attr_reader :name
+  attr_accessor :status, :balance
+  
+  def initialize(name)
+    @name, @status, @balance = name, 'open', 1000
   end
   
-  def valid?
-    
+  def deposit(money)
+    balance += money
   end
 end
